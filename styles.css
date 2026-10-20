@@ -88,6 +88,7 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, #111d 0%, #1117 52%, #1113 100%);
+  z-index: 1;
   pointer-events: none;
 }
 .hero-video {
@@ -100,10 +101,12 @@ body {
   filter: saturate(0.78) contrast(1.08);
   transform: scale(1.02);
   transition: transform 0.35s ease-out;
+  z-index: 0;
 }
 .hero-copy {
   max-width: 700px;
-  z-index: 1;
+  position: relative;
+  z-index: 2;
 }
 .eyebrow {
   font: 500 10px var(--mono);
@@ -151,6 +154,7 @@ h2 em {
   position: absolute;
   right: 9vw;
   top: 45%;
+  z-index: 2;
   border: 1px solid #ffffff77;
   border-radius: 50%;
   width: 100px;
