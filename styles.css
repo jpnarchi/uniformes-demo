@@ -102,6 +102,7 @@ body {
   transform: scale(1.02);
   transition: transform 0.35s ease-out;
   z-index: 0;
+  pointer-events: none;
 }
 .hero-copy {
   max-width: 700px;
