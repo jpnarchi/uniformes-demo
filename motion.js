@@ -1,6 +1,6 @@
 const progress=document.createElement('div');progress.className='scroll-progress';document.body.append(progress);
 const orb=document.createElement('div');orb.className='cursor-orb';document.body.append(orb);
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('in-view')}),{threshold:.12});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('in-view',entry.isIntersecting)),{threshold:.18});
 document.documentElement.classList.add('motion-ready');
 const observeMotion=()=>document.querySelectorAll('.catalogue,.custom,.about,.section-head,.product,.custom-content,.about-grid').forEach(el=>observer.observe(el));
 observeMotion();
