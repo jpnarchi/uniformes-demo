@@ -11,3 +11,5 @@ function scrollMotion(){const max=document.documentElement.scrollHeight-window.i
 window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(scrollMotion);ticking=true}},{passive:true});
 document.addEventListener('pointermove',e=>{document.documentElement.style.setProperty('--mx',`${e.clientX}px`);document.documentElement.style.setProperty('--my',`${e.clientY}px`);document.querySelector('.hero')?.style.setProperty('--parallax-x',`${(e.clientX-innerWidth/2)*-.018}px`);document.querySelector('.hero')?.style.setProperty('--parallax-y',`${(e.clientY-innerHeight/2)*-.018}px`);document.querySelector('.custom-word')?.style.setProperty('transform',`translate(${(e.clientX-innerWidth/2)*.018}px,${(e.clientY-innerHeight/2)*.018}px`)});
 scrollMotion();
+window.addEventListener('load',()=>requestAnimationFrame(scrollMotion));
+setTimeout(scrollMotion,120);
