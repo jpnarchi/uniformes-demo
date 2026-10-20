@@ -1,1 +1,6 @@
-const showcase=document.querySelector('.hero-products');let moved=false;document.addEventListener('pointermove',e=>{if(!showcase)return;const x=(e.clientX-innerWidth/2)*.018,y=(e.clientY-innerHeight/2)*.012;showcase.style.transform=`translate(${x}px,${y}px)`});window.addEventListener('scroll',()=>{if(!showcase)return;const next=window.scrollY>innerHeight*.22;if(next!==moved){moved=next;showcase.classList.toggle('scrolled',next)}} ,{passive:true});
+const showcase=document.querySelector('.hero-products');
+if(showcase){
+  const reveal=new IntersectionObserver(entries=>entries.forEach(entry=>showcase.classList.toggle('is-visible',entry.isIntersecting)),{threshold:.25});
+  reveal.observe(showcase);
+  document.addEventListener('pointermove',event=>{const x=(event.clientX-innerWidth/2)*.012,y=(event.clientY-innerHeight/2)*.008;showcase.style.setProperty('--stage-x',`${x}px`);showcase.style.setProperty('--stage-y',`${y}px`)});
+}
